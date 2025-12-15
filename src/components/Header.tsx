@@ -24,7 +24,7 @@ export function Header() {
             <Zap className="w-6 h-6 text-primary" />
           </div>
           <span className="font-display text-xl font-bold tracking-wider">
-            GYM <span className="text-primary">ADMIN</span>
+            TANISH <span className="text-primary">FITNESS</span>
           </span>
         </div>
 

@@ -73,7 +73,7 @@ export function MacroCalculator() {
         <div className="flex items-center justify-center gap-3">
           <Zap className="w-10 h-10 text-primary animate-pulse-glow" />
           <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-wider">
-            MACRO <span className="text-primary">CALCULATOR</span>
+            TANISH <span className="text-primary">FITNESS</span>
           </h1>
         </div>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
