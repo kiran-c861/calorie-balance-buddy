@@ -67,24 +67,24 @@ export function MacroCalculator() {
   const adjustmentType = calorieAdjustment > 0 ? "surplus" : calorieAdjustment < 0 ? "deficit" : "maintenance";
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-8 space-y-8">
+    <div className="w-full max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-8 space-y-6 sm:space-y-8">
       {/* Header */}
       <div className="text-center space-y-3 animate-slide-up">
-        <div className="flex items-center justify-center gap-3">
-          <Zap className="w-10 h-10 text-primary animate-pulse-glow" />
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-wider">
+        <div className="flex items-center justify-center gap-2 sm:gap-3">
+          <Zap className="w-8 h-8 sm:w-10 sm:h-10 text-primary animate-pulse-glow" />
+          <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-wider">
             TANISH <span className="text-primary">FITNESS</span>
           </h1>
         </div>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+        <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto px-2">
           Calculate your daily caloric needs and macronutrient breakdown based on your goals
         </p>
       </div>
 
       {/* Input Section */}
-      <div className="glass-card rounded-2xl p-6 md:p-8 space-y-6 animate-slide-up" style={{ animationDelay: "0.1s" }}>
-        <h2 className="text-xl font-semibold text-foreground flex items-center gap-2">
-          <Target className="w-5 h-5 text-primary" />
+      <div className="glass-card rounded-2xl p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-slide-up" style={{ animationDelay: "0.1s" }}>
+        <h2 className="text-lg sm:text-xl font-semibold text-foreground flex items-center gap-2">
+          <Target className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
           Personal Information
         </h2>
         
@@ -184,15 +184,15 @@ export function MacroCalculator() {
       </div>
 
       {/* Calorie Adjustment Section */}
-      <div className="glass-card rounded-2xl p-6 md:p-8 space-y-6 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-        <h2 className="text-xl font-semibold text-foreground flex items-center gap-2">
-          <Flame className="w-5 h-5 text-primary" />
+      <div className="glass-card rounded-2xl p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+        <h2 className="text-lg sm:text-xl font-semibold text-foreground flex items-center gap-2">
+          <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
           Calorie Goal
         </h2>
         
         <div className="text-center space-y-2">
-          <p className="text-muted-foreground">Your maintenance calories (TDEE):</p>
-          <p className="font-display text-4xl font-bold text-primary">{Math.round(results.TDEE)} kcal</p>
+          <p className="text-muted-foreground text-sm sm:text-base">Your maintenance calories (TDEE):</p>
+          <p className="font-display text-3xl sm:text-4xl font-bold text-primary">{Math.round(results.TDEE)} kcal</p>
         </div>
 
         <CalorieAdjustment
@@ -210,7 +210,7 @@ export function MacroCalculator() {
               )}
               <span className="text-muted-foreground">Adjusted daily intake:</span>
             </div>
-            <p className={`font-display text-5xl font-bold mt-2 animate-count-up ${adjustmentType === "surplus" ? "text-success" : "text-destructive"}`}>
+            <p className={`font-display text-4xl sm:text-5xl font-bold mt-2 animate-count-up ${adjustmentType === "surplus" ? "text-success" : "text-destructive"}`}>
               {Math.round(results.adjustedCalories)} kcal
             </p>
             <p className={`text-sm mt-1 ${adjustmentType === "surplus" ? "text-success/70" : "text-destructive/70"}`}>
@@ -259,8 +259,8 @@ export function MacroCalculator() {
         </div>
 
         {/* Macro Distribution Bar */}
-        <div className="glass-card rounded-2xl p-6">
-          <h3 className="text-sm font-medium text-muted-foreground mb-4 text-center">Macro Distribution</h3>
+        <div className="glass-card rounded-2xl p-4 sm:p-6">
+          <h3 className="text-xs sm:text-sm font-medium text-muted-foreground mb-3 sm:mb-4 text-center">Macro Distribution</h3>
           <div className="h-8 rounded-full overflow-hidden flex">
             <div
               className="bg-blue-500 transition-all duration-500"
@@ -275,7 +275,7 @@ export function MacroCalculator() {
               style={{ width: `${(results.fatsGrams * 9 / results.adjustedCalories) * 100}%` }}
             />
           </div>
-          <div className="flex justify-between mt-3 text-sm text-muted-foreground">
+        <div className="flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 mt-3 text-xs sm:text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-blue-500" />
               Protein {Math.round((results.proteinGrams * 4 / results.adjustedCalories) * 100)}%
