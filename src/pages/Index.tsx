@@ -1,10 +1,14 @@
 import { MacroCalculator } from "@/components/MacroCalculator";
+import { Header } from "@/components/Header";
 
 const Index = () => {
   return (
-    <main className="min-h-screen py-8">
-      <MacroCalculator />
-    </main>
+    <div className="min-h-screen">
+      <Header />
+      <main className="py-8">
+        <MacroCalculator />
+      </main>
+    </div>
   );
 };
 
