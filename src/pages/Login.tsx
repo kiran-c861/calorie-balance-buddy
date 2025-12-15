@@ -50,10 +50,10 @@ export default function Login() {
             </div>
           </div>
           <h1 className="font-display text-3xl font-bold text-foreground tracking-wider">
-            GYM <span className="text-primary">ADMIN</span>
+            TANISH <span className="text-primary">FITNESS</span>
           </h1>
           <p className="text-muted-foreground mt-2">
-            Sign in to access the macro calculator
+            Sign in to access the admin panel
           </p>
         </div>
 
@@ -151,7 +151,7 @@ export default function Login() {
 
         {/* Footer */}
         <p className="text-center text-sm text-muted-foreground/50 mt-6 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-          Macro Calculator Admin Panel
+          Tanish Fitness Admin Panel
         </p>
       </div>
     </div>
