@@ -51,17 +51,21 @@ function calculateMacros(
 }
 
 export function MacroCalculator() {
-  const [age, setAge] = useState(30);
-  const [heightCm, setHeightCm] = useState(175);
-  const [weightKg, setWeightKg] = useState(75);
+  const [age, setAge] = useState<string>("30");
+  const [heightCm, setHeightCm] = useState<string>("175");
+  const [weightKg, setWeightKg] = useState<string>("75");
   const [gender, setGender] = useState("male");
   const [activityFactor, setActivityFactor] = useState("1.2");
   const [proteinMultiplier, setProteinMultiplier] = useState(1.0);
   const [calorieAdjustment, setCalorieAdjustment] = useState(0);
 
+  const ageNum = parseInt(age) || 30;
+  const heightNum = parseInt(heightCm) || 175;
+  const weightNum = parseInt(weightKg) || 75;
+
   const results = useMemo(
-    () => calculateMacros(age, heightCm, weightKg, parseFloat(activityFactor), proteinMultiplier, calorieAdjustment),
-    [age, heightCm, weightKg, activityFactor, proteinMultiplier, calorieAdjustment]
+    () => calculateMacros(ageNum, heightNum, weightNum, parseFloat(activityFactor), proteinMultiplier, calorieAdjustment),
+    [ageNum, heightNum, weightNum, activityFactor, proteinMultiplier, calorieAdjustment]
   );
 
   const adjustmentType = calorieAdjustment > 0 ? "surplus" : calorieAdjustment < 0 ? "deficit" : "maintenance";
@@ -95,7 +99,8 @@ export function MacroCalculator() {
             <Input
               type="number"
               value={age}
-              onChange={(e) => setAge(Math.max(10, Math.min(100, parseInt(e.target.value) || 0)))}
+              onChange={(e) => setAge(e.target.value)}
+              onBlur={() => setAge(String(Math.max(10, Math.min(100, parseInt(age) || 30))))}
               className="bg-secondary/50 border-border focus:border-primary text-foreground h-12 text-lg"
             />
           </div>
@@ -106,7 +111,8 @@ export function MacroCalculator() {
             <Input
               type="number"
               value={heightCm}
-              onChange={(e) => setHeightCm(Math.max(100, Math.min(250, parseInt(e.target.value) || 0)))}
+              onChange={(e) => setHeightCm(e.target.value)}
+              onBlur={() => setHeightCm(String(Math.max(100, Math.min(250, parseInt(heightCm) || 175))))}
               className="bg-secondary/50 border-border focus:border-primary text-foreground h-12 text-lg"
             />
           </div>
@@ -117,7 +123,8 @@ export function MacroCalculator() {
             <Input
               type="number"
               value={weightKg}
-              onChange={(e) => setWeightKg(Math.max(30, Math.min(300, parseInt(e.target.value) || 0)))}
+              onChange={(e) => setWeightKg(e.target.value)}
+              onBlur={() => setWeightKg(String(Math.max(30, Math.min(300, parseInt(weightKg) || 75))))}
               className="bg-secondary/50 border-border focus:border-primary text-foreground h-12 text-lg"
             />
           </div>
